@@ -1,4 +1,4 @@
-const { Client } = require("discord.js") // npm i discord.js@11.6.4
+const { Client } = require("discord.js")
 
 const client = new Client()
 
