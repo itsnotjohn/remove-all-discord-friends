@@ -4,8 +4,8 @@ const client = new Client()
 
 client.on("ready", async () => {
   for (let friend of client.user.friends.array()) {
-    await friend.removeFriend()
+    await friend.removeFriend();
   }
 })
 
-client.login("paste u token here")
+client.login("paste u token here");
