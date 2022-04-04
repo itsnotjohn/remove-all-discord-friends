@@ -1,7 +1,5 @@
 # remove-discord-friends
 
-use the command below to use the script.
-
-command: npm i discord.js@11.6.4
+usig this version: discord.js@11.6.4
 
 `to fix the error, just use half a neuron.`
