@@ -1,11 +1,24 @@
-const { Client } = require("discord.js")
+(async () => {
+    const token = 'ur token here';
 
-const client = new Client();
+    const response = await fetch(`https://discord.com/api/users/@me/relationships`, {
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': token,
+        }
+    });
 
-client.on("ready", async () => {
-  for (let friend of client.user.friends.array()) {
-    await friend.removeFriend();
-  }
-})
+    for (let friends of await response.json()) {
+        const { user } = friends;
 
-client.login("paste u token here");
+        await fetch(`https://discord.com/api/users/@me/relationships/${user.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': token,
+            }
+        });
+
+        console.log(`friend deleted: ${user.username}#${user.discriminator} (${user.global_name})`);
+    }
+})();
